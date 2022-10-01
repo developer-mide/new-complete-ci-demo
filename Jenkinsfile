@@ -7,7 +7,7 @@ pipeline{
     stages{   
       stage("fetch from Github"){
          steps{
-            git branch: "vp-rem", url: "git@github.com:developer-mide/new-complete-ci-demo.git", credentialsId: "developer-mide"
+            git branch: "vp-rem", url: "git@github.com:developer-mide/new-complete-ci-demo.git", credentialsId: "Jenkins-ci-private-key"
          }
          post{
             success{
