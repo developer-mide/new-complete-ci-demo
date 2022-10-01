@@ -14,7 +14,7 @@ pipeline{
                 echo "Fetched from Github successfully"
             }
             failure{
-                echo "Unable to fetch from Github successfully"
+                echo "Unable to fetch from Github"
             }
           }
        }
