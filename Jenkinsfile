@@ -92,10 +92,10 @@ pipeline{
         }
         post{
             success{
-                slackSend channel: "#jenkinsbuildresults", message: "Build Successful", color: "good"
+                slackSend channel: "#jenkinsbuildresults", message: "Build ${JOB_NAME} was Successful. More info at ${BUILD_URL}", color: "good"
             }
             failure{
-                slackSend channel: "#jenkinsbuildresults", message: "Build Successful", color: "danger"
+                slackSend channel: "#jenkinsbuildresults", message: "Build ${JOB_NAME} failed. More info at ${BUILD_URL}", color: "danger"
             }
         }
      }
