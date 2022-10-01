@@ -88,7 +88,15 @@ pipeline{
      }
      stage("Notify via slack"){
         steps{
-            slackSend channel: "#jenkinsbuildresults", message: "Build Successful"
+            echo "Notified developers via slack"
+        }
+        post{
+            success{
+                slackSend channel: "#jenkinsbuildresults", message: "Build Successful", color: "good"
+            }
+            failure{
+                slackSend channel: "#jenkinsbuildresults", message: "Build Successful", color: "danger"
+            }
         }
      }
    }
