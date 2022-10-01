@@ -7,7 +7,7 @@ pipeline{
     stages{   
       stage("fetch from Github"){
          steps{
-            git branch: "vp-rem", url: "https://github.com/developer-mide/vprofile-project.git"
+            git branch: "vp-rem", url: "git@github.com:developer-mide/new-complete-ci-demo.git", credentialsId: "developer-mide"
          }
          post{
             success{
@@ -84,6 +84,11 @@ pipeline{
             failure{
                 echo "Quality gate returns an error"
             }
+        }
+     }
+     stage("Notify via slack"){
+        steps{
+            slackSend channel: "#jenkinsbuildresults", message: "Build Successful"
         }
      }
    }
