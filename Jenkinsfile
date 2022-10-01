@@ -55,15 +55,16 @@ pipeline{
                  -Dsonar.host.url=http://ec2-54-237-201-133.compute-1.amanaws.com:9000 \
                  -Dsonar.login=31c66a707f6b15905bc7270f36457401c957ac70"
            } 
+        }
+    
         post{
             success{
                 slackSend channel: "#jenkinsbuildresults", message: "${currentBuild.currentResult}. More info at ${BUILD_URL}", color: "good"
             }
             failure{
                 slackSend channel: "#jenkinsbuildresults", message: "${currentBuild.currentResult}. More info at ${BUILD_URL}", color: "danger"
-            }
-        }
-         }
+             }
+           }
       }
     stage("wait for sonarqube quality gates"){
         steps{
