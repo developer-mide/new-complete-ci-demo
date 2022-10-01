@@ -95,7 +95,7 @@ pipeline{
                 slackSend channel: "#jenkinsbuildresults", message: "Build ${JOB_NAME} was Successful. More info at ${BUILD_URL}", color: "good"
             }
             failure{
-                slackSend channel: "#jenkinsbuildresults", message: "Build ${JOB_NAME} failed. More info at ${BUILD_URL}", color: "danger"
+                slackSend channel: "#jenkinsbuildresults", message: "${currentBuild.currentResult}. More info at ${BUILD_URL}", color: "danger"
             }
         }
      }
