@@ -68,7 +68,7 @@ pipeline{
                 nexusArtifactUploader(
                    nexusVersion: 'nexus3',
                    protocol: 'http',
-                   nexusUrl: 'ip-172-31-23-213.ec2.internal:8081/repository/new-era-ci',
+                   nexusUrl: 'ip-172-31-23-213.ec2.internal:8081/repository/new-era-c',
                    groupId: 'com.example',
                    version: "new-era-project-${env.BUILD_TIMESTAMP}",
                    repository: 'new-era-ci',
